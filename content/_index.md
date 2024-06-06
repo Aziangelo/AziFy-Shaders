@@ -20,7 +20,7 @@ hero_btns = [
   </div>
 
   <div class="explorecard" onclick="location.href='download'">
-    <img src="path/to/image.jpg" alt="AziFy Revive">
+    <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss2.jpg" alt="AziFy Revive">
     <h2>AziFy Revive</h2>
     <p>Test</p>
   </div>
