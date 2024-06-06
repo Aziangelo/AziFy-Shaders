@@ -94,12 +94,13 @@ hero_btns = [
 
 <script>
   document.querySelectorAll('.explorecard').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (event) => {
+      event.preventDefault();
       card.style.transform = 'translateY(-10px)';
       setTimeout(() => {
         const url = card.getAttribute('data-url');
         window.location.href = url;
-      }, 200); //ms
+      }, 200);
     });
   });
 </script>
