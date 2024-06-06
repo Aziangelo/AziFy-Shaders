@@ -60,7 +60,7 @@ hero_btns = [
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
   animation: shine 3s infinite;
-  mix-blend-mode: overlay;
+  mix-blend-mode: color-dodge;
 }
 
 @keyframes shine {
