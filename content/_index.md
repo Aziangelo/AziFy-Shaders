@@ -3,11 +3,13 @@ title = "AziFy Shaders"
 template = "index.html"
 
 [extra]
-hero_title = "AziFy Shaders <i class='hero__title-hat fa-solid fa-wand-magic-sparkles'></i>"
-hero_caption = "Enhance your Minecraft Experience."
-hero_btns = [
-    { name = "<i class='fa fa-download'></i> Download", url = "download" }
-]
+<h1 class="hero__title">
+  AziFy Shaders <i class="hero__title-hat fa-solid fa-wand-magic-sparkles"></i>
+</h1>
+<p class="hero_caption">Enhance your Minecraft Experience.</p>
+<div class="hero_btns">
+  <a href="download" class="btn"><i class="fa fa-download"></i> Download</a>
+</div>
 +++
 
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
@@ -46,6 +48,26 @@ hero_btns = [
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hero__title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
 }
 
 .hero__title-hat {
@@ -55,7 +77,7 @@ hero_btns = [
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
- 
+
 @keyframes rotating {
   0% { transform: rotate(0deg); opacity: 1.0; }
   92% { transform: rotate(0deg); opacity: 0.5; }
