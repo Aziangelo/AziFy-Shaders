@@ -10,25 +10,25 @@ hero_btns = [
 ]
 +++
 
+
+
+
+
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
+  <div class="explorecard" onclick="location.href='download1'">
+    <h2>AziFy Truly Default</h2>
+    <p>New Update v3.0!</p>
+    <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg" alt="AziFy Truly Default">
+  </div>
 
-{{ explorecard(
-    title = "AziFy Truly Default"
-    description = "New Update v3.0!"
-    image = "https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg"
-    url = "download"
-    size = 2
-) }}
-
-{{ explorecard(
-    title = "AziFy Revive"
-    description = "Test"
-    image = ""
-    
-    size = 1
-) }}
-
+  <div class="explorecard" onclick="location.href='download2'">
+    <h2>AziFy Revive</h2>
+    <p>Test</p>
+    <img src="path/to/image.jpg" alt="AziFy Revive">
+  </div>
 </div>
+
+
 
 
 <div style="text-align: center;">
@@ -82,6 +82,15 @@ hero_btns = [
   92% { transform: rotate(0deg); opacity: 0.5; }
   100% { transform: rotate(360deg); opacity: 1.0; }
 }
+
+.explorecard {
+  transition: transform 0.2s ease;
+}
+
+.explorecard:active {
+  transform: translateY(-10px);
+}
+
 
 </style>
 
