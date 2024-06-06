@@ -58,9 +58,7 @@ hero_btns = [
   width: 200%;
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: shine 3s infinite;
-  background-clip: text;
-  -webkit-background-clip: text;
+  animation: shine 3s infinite; 
   color: transparent;
 }
 
