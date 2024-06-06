@@ -48,7 +48,6 @@ hero_btns = [
   -webkit-text-fill-color: transparent;
   position: relative;
   display: inline-block;
-  overflow: hidden;
 }
 
 .hero__title::before {
@@ -60,11 +59,13 @@ hero_btns = [
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   animation: shine 3s infinite;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 @keyframes shine {
-  0% { left: -250%; }
+  0% { left: -100%; }
   50% { left: 100%; }
   100% { left: 100%; }
 }
