@@ -33,4 +33,4 @@ If you want to give a suggestion/ report an issue, please open an issue at the G
 
 > **How can I customize this shader?**
 > 
-> See [customization guide](@/customization.md). Some custom variants made by other users can be found [here](@/variants/_index.md).
+> See [customization guide](@/customization.md).
