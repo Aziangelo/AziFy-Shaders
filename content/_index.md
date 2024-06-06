@@ -3,13 +3,11 @@ title = "AziFy Shaders"
 template = "index.html"
 
 [extra]
-<h1 class="hero__title">
-  AziFy Shaders <i class="hero__title-hat fa-solid fa-wand-magic-sparkles"></i>
-</h1>
-<p class="hero_caption">Enhance your Minecraft Experience.</p>
-<div class="hero_btns">
-  <a href="download" class="btn"><i class="fa fa-download"></i> Download</a>
-</div>
+hero_title = "AziFy Shaders <i class='hero__title-hat fa-solid fa-wand-magic-sparkles'></i>"
+hero_caption = "Enhance your Minecraft Experience."
+hero_btns = [
+    { name = "<i class='fa fa-download'></i> Download", url = "download" }
+]
 +++
 
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
