@@ -11,7 +11,6 @@ legacy_downloads = [
 ]
 
 variants_links = [
-    { name = "Explore", url = "variants" },
     { name = "Learn to customize", url = "customization" },
     { name = "Join Discord", url = "https://discord.gg/newb-community-844591537430069279" }
 ]

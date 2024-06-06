@@ -24,7 +24,7 @@ hero_btns = [
     title = "Newb Variants"
     description = "Modified versions of Newb X Legacy."
     image = "https://i.ibb.co/pKP5j02/newb-variants-collage.jpg"
-    url = "variants"
+    
     size = 1
 ) }}
 
