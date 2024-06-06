@@ -54,8 +54,11 @@ hero_btns = [
 .hero__title::before {
   content: '';
   position: relative;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  
   animation: shine 3s infinite;
 }
 
