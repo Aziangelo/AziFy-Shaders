@@ -53,7 +53,7 @@ hero_btns = [
 
 .hero__title::before {
   content: '';
-  position: relative;
+  position: absolute;
   top: 0;
   left: -100%;
   width: 200%;
