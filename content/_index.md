@@ -3,8 +3,8 @@ title = "AziFy Shaders"
 template = "index.html"
 
 [extra]
-hero_title = "Newb Shader <i class='hero__title-hat fa-solid fa-wand-magic-sparkles'></i>"
-hero_caption = "An enhanced vanilla shader for Minecraft BE"
+hero_title = "AziFy Shaders <i class='hero__title-hat fa-solid fa-wand-magic-sparkles'></i>"
+hero_caption = "Enhance your Minecraft Experience."
 hero_btns = [
     { name = "<i class='fa fa-download'></i> Download", url = "download" }
 ]
@@ -13,17 +13,17 @@ hero_btns = [
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
 
 {{ explorecard(
-    title = "Newb X Legacy"
-    description = "Newb Shader for RenderDragon."
-    image = "https://raw.githubusercontent.com/devendrn/newb-x-mcbe/main/docs/screenshots.jpg"
+    title = "AziFy Truly Default"
+    description = "New Update v3.0!"
+    image = "https://github.com/Aziangelo/AF-TrulyDefault/blob/main/azifyss/ss1.jpg"
     url = "download"
     size = 2
 ) }}
 
 {{ explorecard(
-    title = "Newb Variants"
-    description = "Modified versions of Newb X Legacy."
-    image = "https://i.ibb.co/pKP5j02/newb-variants-collage.jpg"
+    title = "AziFy Revive"
+    description = "Test"
+    image = ""
     
     size = 1
 ) }}
@@ -33,56 +33,9 @@ hero_btns = [
 
 <div style="text-align: center;">
 
-# #aesthetic
+# #aesthetic #realistic 
 
-**Newb Shader** makes your Minecraft world more pleasing!
-
-<br>
-
----
-
-## Features
-
-<div style="display: flex; flex-wrap: wrap;">
-
-| Lighting |
-| - |
-| Overworld, underwater, nether, and end lighting. |
-
-| Wave effects |
-| - |
-| Green plants/leaves wave, farm plants wave, lantern wave, and water wave. |
-
-| Rain effects |
-| - |
-| Wet ground with sky reflection, mist blow. |
-
-| Water|
-| - |
-| Simple sky reflection, smoother water texture.  |
-
-| Sky |
-| - |
-| Three color gradient.  |
-
-| Clouds |
-| - |
-| Soft clouds with rain transition and aurora. |
-
-| Entities |
-| - |
-| Soft highlight around edges of entities. |
-
-</div>
-<br>
-
----
-
-## Discord Server
-
-Join our Discord server if you are interested!
-
-**[<i class='fa-brands fa-discord'></i> Newb Community](https://discord.gg/newb-community-844591537430069279)**
+**AziFy Shader** Description!
 
 </div>
 
