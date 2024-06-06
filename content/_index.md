@@ -42,7 +42,7 @@ hero_btns = [
 <style>
 
 .hero__title {
-  background: linear-gradient(80deg, hsl(10,100%,60%) 0%, hsl(220,100%,60%) 100%);
+  background: linear-gradient(80deg, hsl(10, 100%, 60%) 0%, hsl(220, 100%, 60%) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -51,20 +51,19 @@ hero_btns = [
   overflow: hidden;
 }
 
-.hero__title::after {
+.hero__title::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   animation: shine 3s infinite;
-  mix-blend-mode: color-dodge;
 }
 
 @keyframes shine {
-  0% { left: -100%; }
+  0% { left: -200%; }
   50% { left: 100%; }
   100% { left: 100%; }
 }
