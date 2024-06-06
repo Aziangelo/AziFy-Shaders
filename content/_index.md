@@ -15,7 +15,7 @@ hero_btns = [
 {{ explorecard(
     title = "AziFy Truly Default"
     description = "New Update v3.0!"
-    image = "https://github.com/Aziangelo/AF-TrulyDefault/blob/main/azifyss/ss1.jpg"
+    image = "https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg"
     url = "download"
     size = 2
 ) }}
@@ -33,56 +33,9 @@ hero_btns = [
 
 <div style="text-align: center;">
 
-# #aesthetic
+# #aesthetic #realistic 
 
 **AziFy Shader** Description!
-
-<br>
-
----
-
-## Features
-
-<div style="display: flex; flex-wrap: wrap;">
-
-| Lighting |
-| - |
-| Overworld, underwater, nether, and end lighting. |
-
-| Wave effects |
-| - |
-| Green plants/leaves wave, farm plants wave, lantern wave, and water wave. |
-
-| Rain effects |
-| - |
-| Wet ground with sky reflection, mist blow. |
-
-| Water|
-| - |
-| Simple sky reflection, smoother water texture.  |
-
-| Sky |
-| - |
-| Three color gradient.  |
-
-| Clouds |
-| - |
-| Soft clouds with rain transition and aurora. |
-
-| Entities |
-| - |
-| Soft highlight around edges of entities. |
-
-</div>
-<br>
-
----
-
-## Discord Server
-
-Join our Discord server if you are interested!
-
-**[<i class='fa-brands fa-discord'></i> Newb Community](https://discord.gg/newb-community-844591537430069279)**
 
 </div>
 
