@@ -1,4 +1,4 @@
-base_url = ""
+base_url = "https://github.com/Aziangelo"
 compile_sass = true
 build_search_index = false
 
