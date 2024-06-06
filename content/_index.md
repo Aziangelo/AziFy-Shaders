@@ -49,21 +49,18 @@ hero_btns = [
   position: relative;
   display: inline-block;
   overflow: hidden;
-}
-
-.hero__title::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   animation: shine 3s infinite;
 }
+/*
+.hero__title::before {
+  content: '';
+  position: relative;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shine 3s infinite;
+}*/
 
 @keyframes shine {
-  0% { left: -200%; }
+  0% { left: -250%; }
   50% { left: 100%; }
   100% { left: 100%; }
 }
