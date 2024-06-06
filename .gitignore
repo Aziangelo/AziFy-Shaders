@@ -1,4 +1,5 @@
 # ingnore dirs
+public/
 
 # ignore files
 copy.sh
