@@ -51,7 +51,7 @@ hero_btns = [
   overflow: hidden;
 }
 
-.hero__title::before {
+.hero__title::after {
   content: '';
   position: absolute;
   top: 0;
@@ -59,7 +59,8 @@ hero_btns = [
   width: 200%;
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-  animation: shine 2s infinite;
+  animation: shine 3s infinite;
+  mix-blend-mode: overlay;
 }
 
 @keyframes shine {
