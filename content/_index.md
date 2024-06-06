@@ -14,15 +14,15 @@ hero_btns = [
 
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
   <div class="explorecard" onclick="location.href='download'">
+    <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg" alt="AziFy Truly Default">
     <h2>AziFy Truly Default</h2>
     <p>New Update v3.0!</p>
-    <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg" alt="AziFy Truly Default">
   </div>
 
   <div class="explorecard" onclick="location.href='download'">
+    <img src="path/to/image.jpg" alt="AziFy Revive">
     <h2>AziFy Revive</h2>
     <p>Test</p>
-    <img src="path/to/image.jpg" alt="AziFy Revive">
   </div>
 </div>
 
@@ -87,6 +87,31 @@ hero_btns = [
 
 .explorecard:active {
   transform: translateY(-10px);
+}
+
+.explorecard {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+}
+
+.explorecard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.explorecard h2, .explorecard p {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  margin: 0;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 
