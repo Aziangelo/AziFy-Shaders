@@ -12,8 +12,6 @@ hero_btns = [
 
 
 
-
-
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
   <div class="explorecard" onclick="location.href='download1'">
     <h2>AziFy Truly Default</h2>
@@ -94,3 +92,14 @@ hero_btns = [
 
 </style>
 
+<script>
+  document.querySelectorAll('.explorecard').forEach(card => {
+    card.addEventListener('click', () => {
+      card.style.transform = 'translateY(-10px)';
+      setTimeout(() => {
+        const url = card.getAttribute('data-url');
+        window.location.href = url;
+      }, 200); //ms
+    });
+  });
+</script>
