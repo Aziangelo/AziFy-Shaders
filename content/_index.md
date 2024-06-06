@@ -15,7 +15,7 @@ hero_btns = [
 {{ explorecard(
     title = "AziFy Truly Default"
     description = "New Update v3.0!"
-    image = "https://github.com/Aziangelo/AF-TrulyDefault/blob/main/azifyss/ss1.jpg"
+    image = "https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg"
     url = "download"
     size = 2
 ) }}
