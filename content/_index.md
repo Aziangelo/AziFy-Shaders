@@ -110,8 +110,8 @@ hero_btns = [
   color: white;
   margin: 0;
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.45);
-  width: calc(100% - 10px);
+  background-color: rgba(0, 0, 0, 0.3);
+  width: calc(100% - 20px);
 }
 
 .explorecard h2 {
