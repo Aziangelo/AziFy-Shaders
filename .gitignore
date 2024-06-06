@@ -1,0 +1,11 @@
+# ingnore dirs
+
+# ignore files
+copy.sh
+commit.sh
+pull.sh
+chmod.sh
+
+
+# eol
+* text=lf
