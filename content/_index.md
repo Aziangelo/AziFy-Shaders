@@ -60,6 +60,7 @@ hero_btns = [
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   animation: shine 3s infinite;
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes shine {
