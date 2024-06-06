@@ -1,5 +1,5 @@
 +++
-title = "Newb Shader"
+title = "AziFy Shaders"
 template = "index.html"
 
 [extra]
