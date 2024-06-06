@@ -9,7 +9,7 @@ author = "devendrn"
 theme = "devnzt"
 
 [markdown]
-highlight_code = false
+highlight_code = true
 
 [extra]
 error404_title = "Error 404"
