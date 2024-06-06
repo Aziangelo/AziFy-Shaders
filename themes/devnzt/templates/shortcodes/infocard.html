@@ -1,0 +1,21 @@
+<div class="card" style="min-width: max(300px, 30%); flex: 1;">
+  <div class="card__banner">
+    <img src="{{ image }}">
+  </div>
+  <div class="card__content">
+    <h3>
+      {{ title }}
+      <a href="{{ link }}" style="10px; opacity: 0.8; margin-left: 5px; font-size: 15px;">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </h3>
+    <p>{{ description }}</p>
+    <div style="margin-top: 16px; display: flex; gap: 5px; flex-wrap: wrap;">
+    {% for tag in tags %}
+      <span class="chip">
+       {{ tag }}
+      </span>
+    {% endfor %}
+    </div>
+  </div>
+</div>

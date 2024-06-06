@@ -1,0 +1,14 @@
+<div class="card" style="text-align: center; min-width: max(300px, 30%); flex: 1;">
+  <div class="card__banner">
+    <img src="{{ image }}">
+  </div>
+  <div class="card__content">
+    <h3>{{ title }}</h4>
+    <p>{{ description }}</p>
+    <div style="width: 100%; margin-top: 16px; display: flex; gap: 10px; flex-direction: column;">
+    {% for link in page.extra[links_var] %}
+      <a class="btn" href="{{ link.url }}">{{ link.name }}</a>
+    {% endfor %}
+    </div>
+  </div>
+</div>

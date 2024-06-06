@@ -1,0 +1,22 @@
+base_url = "https://devendrn.github.io/devnzt/"
+compile_sass = true
+build_search_index = false
+
+title = "devnzt."
+description = "A zola theme."
+author = "devendrn"
+
+[markdown]
+highlight_code = false
+
+[extra]
+error404_title = "Egestas 404"
+error404_description = "Ed tristique ac massa vitae efficitur..."
+
+header_links = [
+    { name = "Justo", url = "page" },
+    { name = "Lectus", url = "gallery" },
+]
+
+footer_content = "Curabitur &copy; 8174 devnzt"
+

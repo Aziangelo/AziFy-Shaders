@@ -1,0 +1,115 @@
+@use "function/all" as *;
+@import "variables";
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: col0(fg-a);
+  background-color: col0(bg-a);
+  margin: 0;
+  padding-top: $headerHeight;
+  font: {
+    family: sans-serif;
+    size: 16px;
+    weight: 400;
+  }
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 42px 0 10px 0;
+  line-height: 100%;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 24px 0 10px 0;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0 10px 0;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px 0 10px 0;
+}
+
+p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+code {
+  font-size: 16px;
+}
+
+a {
+  &:link {
+    color: col2(hu-b, fg-c);
+    text-decoration: none;
+  }
+  &:visited {
+    color: col2(hu-p, fg-c);
+    text-decoration: none;
+  }
+  &:hover {
+    color: col2(hu-p, fg-b);
+    text-decoration: underline;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+hr {
+  background-color: col0(bg-c);
+  border-width: 0;
+  height: 1px;
+}
+
+blockquote {
+  background-color: col0(bg-b);
+  margin: 10px 0;
+  padding: 15px 20px;
+  border-left: 3px solid col0(bg-d);
+}
+
+table {
+  flex: 1;
+  min-width: 200px;
+}
+
+th, td {
+  background-color: col0(bg-b);
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+code {
+  background-color: col0(bg-b);
+  padding: 2px 4px;
+}
+
+pre > code {
+  padding: 12px;
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+

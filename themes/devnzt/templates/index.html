@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="hero">
+    <h1 class="hero__title">{{ section.extra.hero_title | safe }}</h1>
+    <h3 class="hero__about">{{ section.extra.hero_caption }}</h3>
+    {% if section.extra.hero_btns %}
+      <br><br>
+      {% for btn in section.extra.hero_btns %}
+        <a class="btn" href="{{ btn.url }}">{{ btn.name | safe }}</a>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  {{ section.content |safe }}
+</div>
+
+
+{% endblock content %}
+

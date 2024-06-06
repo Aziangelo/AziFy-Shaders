@@ -1,0 +1,8 @@
+<div class="explore-card" style="flex: {{ size }};">
+  <a {% if url %} href="{{ url }} {% endif %}"></a>
+  <img class = "explore-card__img" src="{{ image }}">
+  <div class = "explore-card__content">
+    <h3 class="explore-card__title">{{ title }}</h3>
+    <p class="explore-card__description">{{ description }}</p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+name = "devnzt"
+description = "A simple zola theme for personal use."
+license = "MIT"
+homepage = "https://github.com/devendrn/devnzt/"
+min_version = "0.18.0"
+demo = ""
+
+[extra]
+error404_title = "Error 404"
+error404_description = "Can't find the page you are looking for..."
+
+[author]
+name = "devendrn"
+homepage = "https://devendrn.github.io/"

@@ -1,0 +1,14 @@
+@function col0($l) {
+  $hsl-color: hsl(0, 0%, var(--#{$l}));
+  @return $hsl-color;
+}
+
+@function col1($h, $l) {
+  $hsl-color: hsl(var(--#{$h}), 30%, var(--#{$l}));
+  @return $hsl-color;
+}
+
+@function col2($h, $l) {
+  $hsl-color: hsl(var(--#{$h}), 100%, var(--#{$l}));
+  @return $hsl-color;
+}
