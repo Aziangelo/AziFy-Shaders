@@ -115,7 +115,7 @@ hero_btns = [
 }
 
 .explorecard h2 {
-  bottom: 25px;
+  bottom: 30px;
 }
 
 .explorecard p {
