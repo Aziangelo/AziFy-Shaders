@@ -104,23 +104,22 @@ hero_btns = [
   display: block;
 }
 
-.explorecard h2 {
+.explorecard h2, .explorecard p {
   position: absolute;
-  bottom: 120px;
   left: 10px;
   color: white;
   margin: 0;
   padding: 5px;
   background-color: rgba(0, 0, 0, 0.6);
+  width: calc(100% - 20px);
 }
+
+.explorecard h2 {
+  bottom: 40px;
+}
+
 .explorecard p {
-  position: absolute;
   bottom: 10px;
-  left: 10px;
-  color: white;
-  margin: 0;
-  padding: 5px;
-  background-color: rgba(0, 0, 0, 0.6);
 }
 
 
