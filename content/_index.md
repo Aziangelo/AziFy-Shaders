@@ -106,8 +106,8 @@ hero_btns = [
 
 .explorecard h2, .explorecard p {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  left: 10px;
   color: white;
   margin: 0;
   padding: 5px;
