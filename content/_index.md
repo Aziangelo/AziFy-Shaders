@@ -40,16 +40,6 @@ hero_btns = [
 
 
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Continuous Music Loop</title>
-  <style>
-    audio {
-      display: none;
-    }
-  </style>
-</head>
 <body>
   <audio id="track1" src="sound/track1.mp3"></audio>
   <audio id="track2" src="sound/track2.mp3"></audio>
@@ -75,7 +65,6 @@ hero_btns = [
     tracks[currentTrack].play();
   </script>
 </body>
-</html>
 
 
 <style>
