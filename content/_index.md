@@ -3,7 +3,7 @@ title = "AziFy Shaders"
 template = "index.html"
 
 [extra]
-hero_title = "Purket may Jowa! <i class='hero__title-hat fa-solid fa-wand-magic-sparkles'></i>"
+hero_title = "AziFy Shaders <i class='hero__title-hat fa-solid fa-wand-magic-sparkles'></i>"
 hero_caption = "Enhance your Minecraft Experience."
 hero_btns = [
     { name = "<i class='fa fa-download'></i> Download", url = "download" }
