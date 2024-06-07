@@ -11,7 +11,7 @@ hero_btns = [
 +++
 
 
-<audio id="click-sound" src="sound/click.wav"></audio>
+<audio id="click-sound" src="sound/click.mp3"></audio>
 
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
   <div class="explorecard clickable" onclick="location.href='download'">
