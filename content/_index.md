@@ -11,15 +11,16 @@ hero_btns = [
 +++
 
 
+<audio id="click-sound" src="sound/click.wav"></audio>
 
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
-  <div class="explorecard" onclick="location.href='download'">
+  <div class="explorecard clickable" onclick="location.href='download'">
     <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg" alt="AziFy Truly Default">
     <h2>AziFy Truly Default</h2>
     <p>New Update v3.0!</p>
   </div>
 
-  <div class="explorecard" onclick="location.href='download'">
+  <div class="explorecard clickable" onclick="location.href='download'">
     <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss2.jpg" alt="AziFy Revive">
     <h2>AziFy Revive</h2>
     <p>Test</p>
@@ -124,3 +125,17 @@ hero_btns = [
 
 
 </style>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const clickSound = document.getElementById('click-sound');
+
+    document.querySelectorAll('.clickable').forEach(item => {
+      item.addEventListener('click', () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      });
+    });
+  });
+</script>
