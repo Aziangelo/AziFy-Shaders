@@ -3,19 +3,21 @@ title = "Download"
 description = ""
 
 [extra]
-<!--
+
 legacy_downloads = [
     { name = "Installation guide", url = "guide" },
-    { name = "nxl-15-android.mcpack", url = "https://github.com/devendrn/newb-x-mcbe/releases/download/v15/newb-x-15-android.mcpack" },
-    { name = "nxl-15-windows.mcpack", url = "https://github.com/devendrn/newb-x-mcbe/releases/download/v15/newb-x-15-windows.mcpack" }
+    { name = "Download", url = "https://example.com/" },
+    { name = "Download", url = "https://example.com/" }
 ]
 
 variants_links = [
     { name = "Learn to customize", url = "customization" },
-    { name = "Join Discord", url = "https://discord.gg/newb-community-844591537430069279" }
+    { name = "Join Discord", url = "https://example.com/" }
 ]
 
 +++
+
+<!--
 
 <div style="text-align: center;">
 
