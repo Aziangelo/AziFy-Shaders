@@ -41,7 +41,7 @@ hero_btns = [
 <style>
 
 .hero__title {
-  background: linear-gradient(80deg, hsl(10,100%,60%) 0%, hsl(120,200%,60%) 100%);
+  background: linear-gradient(80deg, hsl(10,100%,60%) 0%, hsl(140,100%,60%) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
