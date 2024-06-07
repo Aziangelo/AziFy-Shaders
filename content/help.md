@@ -5,7 +5,7 @@ description = ""
 
 <div style="text-align: center;">
 
-**[Installation](@/guide.md) | [Discord](https://discord.gg/newb-community-844591537430069279) | [GitHub](https://github.com/devendrn/newb-x-mcbe)**
+**[Installation](@/guide.md) | [Discord](https://example.com/) | [GitHub](https://example.com/)**
 
 </div>
 

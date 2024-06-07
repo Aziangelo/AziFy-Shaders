@@ -1,8 +1,8 @@
 +++
 title = "Installation Guide"
-description = "Learn how to install Newb X Legacy or Newb Variants"
+description = "Learn how to install AziFy Shaders or Any AziFy Variants"
 +++
-
+<!--
 > Shaders are not officially supported by Minecraft Bedrock Edition. You have to follow unofficial methods to be able to use these shaders.
 
 <div style="text-align: center;">
@@ -65,3 +65,4 @@ Activate the shader in Global Resource Packs and restart Minecraft.
 # iOS
 > No safe installation method for iOS yet. You need to have jailbreak, or use modified IPA as of now.
 
+-->

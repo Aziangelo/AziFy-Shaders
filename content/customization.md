@@ -2,7 +2,7 @@
 title = "Customization"
 description = "Learn how to customize Newb X Legacy"
 +++
-
+<!--
 <div style="text-align: center;">
 
 [Android](#android) | [Windows](#windows)
@@ -129,3 +129,4 @@ Available parameters for the build.bat:
 To edit config, open `include/newb/config.h` and make your changes.
 
 After making a change, build the shader and test it to make sure it works.
+-->

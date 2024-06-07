@@ -3,7 +3,7 @@ title = "Download"
 description = ""
 
 [extra]
-
+<!--
 legacy_downloads = [
     { name = "Installation guide", url = "guide" },
     { name = "nxl-15-android.mcpack", url = "https://github.com/devendrn/newb-x-mcbe/releases/download/v15/newb-x-15-android.mcpack" },
@@ -67,3 +67,4 @@ th, td {
     background-color: hsl(0, 0%, var(--bg-a));
 }
 </style>
+-->
