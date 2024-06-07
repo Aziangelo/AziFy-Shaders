@@ -38,35 +38,6 @@ hero_btns = [
 </div>
 
 
-
-
-<body>
-  <audio id="track1" src="sound/track1.mp3"></audio>
-  <audio id="track2" src="sound/track2.mp3"></audio>
-
-  <script>
-    const tracks = [
-      document.getElementById('track1'),
-      document.getElementById('track2'),
-      document.getElementById('track3')
-    ];
-    let currentTrack = 0;
-
-    function playNextTrack() {
-      tracks[currentTrack].pause();
-      currentTrack = (currentTrack + 1) % tracks.length;
-      tracks[currentTrack].play();
-    }
-
-    tracks.forEach((track, index) => {
-      track.addEventListener('ended', playNextTrack);
-    });
-
-    tracks[currentTrack].play();
-  </script>
-</body>
-
-
 <style>
 
 .hero__title {
