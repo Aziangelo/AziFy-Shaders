@@ -12,15 +12,14 @@ hero_btns = [
 
 
 
-
 <div style="width: 100%; display: flex; flex-wrap: wrap; gap: 10px;">
-  <div class="explorecard clickable" onclick="location.href='download'">
+  <div class="explorecard" onclick="location.href='download'">
     <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss1.jpg" alt="AziFy Truly Default">
     <h2>AziFy Truly Default</h2>
     <p>New Update v3.0!</p>
   </div>
 
-  <div class="explorecard clickable" onclick="location.href='download'">
+  <div class="explorecard" onclick="location.href='download'">
     <img src="https://raw.githubusercontent.com/Aziangelo/AF-TrulyDefault/main/azifyss/ss2.jpg" alt="AziFy Revive">
     <h2>AziFy Revive</h2>
     <p>Test</p>
@@ -37,6 +36,47 @@ hero_btns = [
 **AziFy Shader** Description!
 
 </div>
+
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Continuous Music Loop</title>
+  <style>
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <audio id="track1" src="sound/track1.mp3"></audio>
+  <audio id="track2" src="sound/track2.mp3"></audio>
+
+  <script>
+    const tracks = [
+      document.getElementById('track1'),
+      document.getElementById('track2'),
+      document.getElementById('track3')
+    ];
+    let currentTrack = 0;
+
+    function playNextTrack() {
+      tracks[currentTrack].pause();
+      currentTrack = (currentTrack + 1) % tracks.length;
+      tracks[currentTrack].play();
+    }
+
+    tracks.forEach((track, index) => {
+      track.addEventListener('ended', playNextTrack);
+    });
+
+    tracks[currentTrack].play();
+  </script>
+</body>
+</html>
+
 
 <style>
 
@@ -125,18 +165,3 @@ hero_btns = [
 
 
 </style>
-
-<audio id="click-sound" src="sound/click.mp3"></audio>
-
-<script>
-  document.addEventListener('DOMContentLoaded', (event) => {
-    const clickSound = document.getElementById('click-sound');
-
-    document.querySelectorAll('.clickable').forEach(item => {
-      item.addEventListener('click', () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
-      });
-    });
-  });
-</script>
