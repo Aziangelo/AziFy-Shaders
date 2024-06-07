@@ -62,18 +62,18 @@ hero_btns = [
   mix-blend-mode: overlay;
 }
 
+.hero__title-hat {
+  font-size: 56px;
+  animation-name: shine;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  
+}
+
 @keyframes shine {
   0% { left: -210%; }
   50% { left: 100%; }
   100% { left: 100%; }
-}
-
-.hero__title-hat {
-  font-size: 56px;
-  animation-name: rotating;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
 }
 
 @keyframes rotating {
