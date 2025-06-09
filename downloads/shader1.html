@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soft Lighting Shader - AziFy Shaders</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+    }
+    header {
+      background-color: #963636;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .title {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    .content-container {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .shader-image {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      background-color: #963636;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
+    .shader-info {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-left: 4px solid #963636;
+      border-radius: 10px;
+    }
+    .shader-info h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    .shader-info p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .download-btn {
+      background-color: #963636;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 1rem;
+    }
+    .download-btn:hover {
+      background-color: #b84848;
+    }
+    .download-btn.clicked {
+      animation: pop 0.3s ease;
+    }
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+      background-color: #121212;
+      margin-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      .shader-info h2 {
+        font-size: 1.2rem;
+      }
+      .shader-info p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">AziFy Shaders</div>
+  </header>
+
+  <div class="content-container">
+    <img src="soft-lighting-preview.jpg" alt="Soft Lighting Shader Preview" class="shader-image" />
+    <div class="shader-info">
+      <h2>Soft Lighting Shader</h2>
+      <p>
+        This shader delivers a beautiful soft lighting effect with smooth shadows, enhancing your scenes with a more natural and pleasing light diffusion. Ideal for atmospheric projects, it blends light gracefully across surfaces and works efficiently across most platforms.
+      </p>
+      <button class="download-btn" onclick="animateDownload(this)">Download Shader</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    © Azify Shaders, All Rights Reserved.
+  </div>
+
+  <script>
+    function animateDownload(button) {
+      button.classList.add('clicked');
+      setTimeout(() => {
+        button.classList.remove('clicked');
+      }, 300);
+      // Actual download logic can be added here
+    }
+  </script>
+</body>
+</html>
