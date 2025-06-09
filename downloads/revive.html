@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soft Lighting Shader - AziFy Shaders</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+    }
+    header {
+      background-color: #963636;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .title {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    .content-container {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .shader-image {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      background-color: #963636;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
+    .shader-info {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-left: 4px solid #963636;
+      border-radius: 10px;
+    }
+    .shader-info h2 {
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+    .shader-info p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .download-btn {
+      background-color: #963636;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 1rem;
+    }
+    .download-btn:hover {
+      background-color: #b84848;
+    }
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+      background-color: #121212;
+      margin-top: 2rem;
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup-content {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 90%;
+      width: 320px;
+      text-align: center;
+      border: 2px solid #963636;
+    }
+    .popup-content h3 {
+      margin-bottom: 1rem;
+    }
+    .popup-content .quality-options button {
+      background-color: #963636;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .popup-content .provider-options button {
+      background-color: #444;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: 1px solid #963636;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+    }
+    .popup-content .provider-options button.linkvertise-btn {
+      background-color: #444;
+      border-color: orange;
+      color: white;
+    }
+    .popup-content .provider-options button.lootlabs-btn {
+      background-color: #444;
+      border-color: #8e44ad;
+      color: white;
+    }
+    .close-btn {
+      margin-top: 1rem;
+      background-color: transparent;
+      color: #aaa;
+      border: none;
+      cursor: pointer;
+    }
+    .version-options button {
+      background: #222;
+      color: #fff;
+      border: 1px solid #963636;
+      border-radius: 6px;
+      margin: 0 0.25rem 0.5rem 0.25rem;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+    }
+    .version-options button.active-version {
+      background: #963636;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .quality-options button.active-quality {
+      background: #963636;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    @media (max-width: 600px) {
+      .shader-info h2 {
+        font-size: 1.2rem;
+      }
+      .shader-info p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title"><a href="../index.html" style="color: inherit; text-decoration: none;">AziFy Shaders</a></div>
+  </header>
+
+  <div class="content-container">
+    <img id="shader-image" class="shader-image" style="object-fit:cover;" />
+    <div class="shader-info">
+      <h2 id="shader-title"></h2>
+      <p id="shader-description"></p>
+      <button class="download-btn" onclick="showDownloadPopup()">Download Shader</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    © Azify Shaders, All Rights Reserved.
+  </div>
+
+  <div id="popup" class="popup" style="display:none">
+    <div class="popup-content">
+      <h3>Select Version and Provider</h3>
+      <div class="version-options" id="version-options" style="margin-bottom: 1rem;"></div>
+      <div class="quality-options" id="quality-options"></div>
+      <div class="provider-options" id="providers" style="display:none"></div>
+      <button class="close-btn" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+  // === SHADER CONTENT CONFIGURATION ===
+  const shaderConfig = {
+    image: "../images/revive.gif",
+    imageAlt: "revive shader",
+    title: "Revive Shader",
+    description: "Soft lighting shader with smooth shadows"
+  };
+  // === END SHADER CONTENT CONFIGURATION ===
+
+  // === EASY CONFIGURATION SECTION ===
+  // Edit these arrays/objects to add/remove versions, qualities, providers, and links
+  const versions = [
+    { id: 'v2.5', label: 'v2.5 (Latest)' },
+    { id: 'v1.5', label: 'v1.5 (Latest)' },
+    { id: 'v1.4', label: 'v1.4 (Old)' }
+  ];
+  const qualities = [
+    { id: 'ultra', label: 'Ultra' },
+    { id: 'hi', label: 'High' },
+    { id: 'medium', label: 'Medium' }
+  ];
+  const providers = [
+    { id: 'Linkvertise', label: 'Linkvertise', btnClass: 'linkvertise-btn' },
+    { id: 'Lootlabs', label: 'Lootlabs', btnClass: 'lootlabs-btn' }
+  ];
+  // Map: version -> quality -> provider -> link
+  const downloadLinks = {
+    v2_5: {
+      ultra: {
+        Linkvertise: 'https://your-v1.5-ultra-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-ultra-lootlabs-link.com'
+      },
+      high: {
+        Linkvertise: 'https://your-v1.5-high-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-high-lootlabs-link.com'
+      },
+      medium: {
+        Linkvertise: 'https://your-v1.5-medium-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-medium-lootlabs-link.com'
+      }
+    },
+    v1_5: {
+      ultra: {
+        Linkvertise: 'https://your-v1.5-ultra-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-ultra-lootlabs-link.com'
+      },
+      high: {
+        Linkvertise: 'https://your-v1.5-high-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-high-lootlabs-link.com'
+      },
+      medium: {
+        Linkvertise: 'https://your-v1.5-medium-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-medium-lootlabs-link.com'
+      }
+    },
+    v1_4: {
+      ultra: {
+        Linkvertise: 'https://your-v1.4-ultra-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.4-ultra-lootlabs-link.com'
+      },
+      high: {
+        Linkvertise: 'https://your-v1.4-high-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.4-high-lootlabs-link.com'
+      },
+      medium: {
+        Linkvertise: 'https://your-v1.4-medium-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.4-medium-lootlabs-link.com'
+      }
+    }
+  };
+  // === END CONFIGURATION SECTION ===
+
+  // Store the selected version and quality
+  let selectedShaderVersion = versions[0].id; // default to first
+  let selectedQuality = '';
+
+  // Dynamically render version, quality, and provider buttons
+  function renderPopupOptions() {
+    // Versions
+    const versionDiv = document.getElementById('version-options');
+    versionDiv.innerHTML = '';
+    versions.forEach(v => {
+      const btn = document.createElement('button');
+      btn.textContent = v.label;
+      btn.id = 'ver-' + v.id;
+      btn.onclick = () => chooseShaderVersion(v.id);
+      btn.className = (v.id === selectedShaderVersion) ? 'active-version' : '';
+      versionDiv.appendChild(btn);
+    });
+    // Qualities
+    const qualityDiv = document.getElementById('quality-options');
+    qualityDiv.innerHTML = '';
+    qualities.forEach(q => {
+      const btn = document.createElement('button');
+      btn.textContent = q.label;
+      btn.id = 'quality-' + q.id;
+      btn.onclick = () => chooseQuality(q.id);
+      btn.className = (q.id === selectedQuality) ? 'active-quality' : '';
+      qualityDiv.appendChild(btn);
+    });
+    // Providers
+    const providerDiv = document.getElementById('providers');
+    providerDiv.innerHTML = '<p>Choose provider:</p>';
+    providers.forEach(p => {
+      const btn = document.createElement('button');
+      btn.textContent = p.label;
+      btn.className = p.btnClass;
+      btn.onclick = () => goToLink(p.id);
+      providerDiv.appendChild(btn);
+    });
+  }
+
+  // Show the popup
+  function showDownloadPopup() {
+    document.getElementById('popup').style.display = 'flex';
+    selectedShaderVersion = versions[0].id;
+    selectedQuality = '';
+    document.getElementById('providers').style.display = 'none';
+    renderPopupOptions();
+  }
+
+  // Hide the popup and provider options
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('providers').style.display = 'none';
+  }
+
+  // Handle shader version selection
+  function chooseShaderVersion(version) {
+    selectedShaderVersion = version;
+    document.getElementById('providers').style.display = 'none';
+    renderPopupOptions();
+  }
+
+  // Handle quality selection
+  function chooseQuality(quality) {
+    selectedQuality = quality;
+    document.getElementById('providers').style.display = 'block';
+    renderPopupOptions();
+  }
+
+  // When a provider is chosen, open the correct link
+  function goToLink(provider) {
+    const versionKey = selectedShaderVersion.replace('.', '_');
+    const linksForVersion = downloadLinks[versionKey];
+    if (!linksForVersion) {
+      alert('No links set for this shader version.');
+      closePopup();
+      return;
+    }
+    const linksForQuality = linksForVersion[selectedQuality];
+    if (!linksForQuality) {
+      alert('No links set for this quality.');
+      closePopup();
+      return;
+    }
+    const link = linksForQuality[provider];
+    if (link) {
+      window.open(link, '_blank');
+    } else {
+      alert('Download link not set for this option.');
+    }
+    closePopup();
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    // Render shader image, title, and description
+    document.getElementById('shader-image').src = shaderConfig.image;
+    document.getElementById('shader-image').alt = shaderConfig.imageAlt;
+    document.getElementById('shader-title').textContent = shaderConfig.title;
+    document.getElementById('shader-description').textContent = shaderConfig.description;
+  });
+  </script>
+</body>
+</html>
