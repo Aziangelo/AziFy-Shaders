@@ -4,6 +4,7 @@ public/
 # ignore files
 copy.sh
 commit.sh
+commit.bat
 pull.sh
 chmod.sh
 
