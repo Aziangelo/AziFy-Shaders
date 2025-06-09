@@ -1,2 +1,2 @@
 # AziFy-Shaders
-theme or template used is devnzt by devren (newb shader creator)
+A website for AziFy Shader Collections!
