@@ -152,6 +152,11 @@
       color: #fff;
       border: 2px solid #fff;
     }
+    .quality-options button.active-quality {
+      background: #963636;
+      color: #fff;
+      border: 2px solid #fff;
+    }
     @media (max-width: 600px) {
       .shader-info h2 {
         font-size: 1.2rem;
@@ -164,16 +169,14 @@
 </head>
 <body>
   <header>
-    <div class="title">AziFy Shaders</div>
+    <div class="title"><a href="../index.html" style="color: inherit; text-decoration: none;">AziFy Shaders</a></div>
   </header>
 
   <div class="content-container">
-    <img src="soft-lighting-preview.jpg" alt="Soft Lighting Shader Preview" class="shader-image" />
+    <img id="shader-image" class="shader-image" style="object-fit:cover;" />
     <div class="shader-info">
-      <h2>Soft Lighting Shader</h2>
-      <p>
-        This shader delivers a beautiful soft lighting effect with smooth shadows, enhancing your scenes with a more natural and pleasing light diffusion. Ideal for atmospheric projects, it blends light gracefully across surfaces and works efficiently across most platforms.
-      </p>
+      <h2 id="shader-title"></h2>
+      <p id="shader-description"></p>
       <button class="download-btn" onclick="showDownloadPopup()">Download Shader</button>
     </div>
   </div>
@@ -185,33 +188,55 @@
   <div id="popup" class="popup" style="display:none">
     <div class="popup-content">
       <h3>Select Version and Provider</h3>
-      <!-- Version number choices -->
-      <div class="version-options" style="margin-bottom: 1rem;">
-        <button onclick="chooseShaderVersion('v1.5')" id="ver-v1.5" class="active-version">v1.5 (Latest)</button>
-        <button onclick="chooseShaderVersion('v1.4')" id="ver-v1.4">v1.4 (Old)</button>
-      </div>
-      <div class="quality-options">
-        <button onclick="chooseQuality('ultra')">Ultra</button>
-        <button onclick="chooseQuality('high')">High</button>
-        <button onclick="chooseQuality('medium')">Medium</button>
-      </div>
-      <div class="provider-options" id="providers" style="display:none">
-        <p>Choose provider:</p>
-        <button class="linkvertise-btn" onclick="goToLink('Linkvertise')">Linkvertise</button>
-        <button class="lootlabs-btn" onclick="goToLink('Lootlabs')">Lootlabs</button>
-      </div>
+      <div class="version-options" id="version-options" style="margin-bottom: 1rem;"></div>
+      <div class="quality-options" id="quality-options"></div>
+      <div class="provider-options" id="providers" style="display:none"></div>
       <button class="close-btn" onclick="closePopup()">Cancel</button>
     </div>
   </div>
 
   <script>
-  // Store the selected version and quality
-  let selectedShaderVersion = 'v1.5'; // default to latest
-  let selectedQuality = '';
-  let selectedVersion = ''; // for backward compatibility
+  // === SHADER CONTENT CONFIGURATION ===
+  const shaderConfig = {
+    image: "../images/shader1.gif",
+    imageAlt: "Soft Lighting Shader Preview",
+    title: "Soft Lighting Shader",
+    description: "This shader delivers a beautiful soft lighting effect with smooth shadows, enhancing your scenes with a more natural and pleasing light diffusion. Ideal for atmospheric projects, it blends light gracefully across surfaces and works efficiently across most platforms."
+  };
+  // === END SHADER CONTENT CONFIGURATION ===
 
-  // Define download links for each shader version, quality, and provider
+  // === EASY CONFIGURATION SECTION ===
+  // Edit these arrays/objects to add/remove versions, qualities, providers, and links
+  const versions = [
+    { id: 'v2.5', label: 'v2.5 (Latest)' },
+    { id: 'v1.5', label: 'v1.5 (Latest)' },
+    { id: 'v1.4', label: 'v1.4 (Old)' }
+  ];
+  const qualities = [
+    { id: 'ultra', label: 'Ultra' },
+    { id: 'hi', label: 'High' },
+    { id: 'medium', label: 'Medium' }
+  ];
+  const providers = [
+    { id: 'Linkvertise', label: 'Linkvertise', btnClass: 'linkvertise-btn' },
+    { id: 'Lootlabs', label: 'Lootlabs', btnClass: 'lootlabs-btn' }
+  ];
+  // Map: version -> quality -> provider -> link
   const downloadLinks = {
+    v2_5: {
+      ultra: {
+        Linkvertise: 'https://your-v1.5-ultra-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-ultra-lootlabs-link.com'
+      },
+      high: {
+        Linkvertise: 'https://your-v1.5-high-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-high-lootlabs-link.com'
+      },
+      medium: {
+        Linkvertise: 'https://your-v1.5-medium-linkvertise-link.com',
+        Lootlabs: 'https://your-v1.5-medium-lootlabs-link.com'
+      }
+    },
     v1_5: {
       ultra: {
         Linkvertise: 'https://your-v1.5-ultra-linkvertise-link.com',
@@ -241,13 +266,55 @@
       }
     }
   };
+  // === END CONFIGURATION SECTION ===
+
+  // Store the selected version and quality
+  let selectedShaderVersion = versions[0].id; // default to first
+  let selectedQuality = '';
+
+  // Dynamically render version, quality, and provider buttons
+  function renderPopupOptions() {
+    // Versions
+    const versionDiv = document.getElementById('version-options');
+    versionDiv.innerHTML = '';
+    versions.forEach(v => {
+      const btn = document.createElement('button');
+      btn.textContent = v.label;
+      btn.id = 'ver-' + v.id;
+      btn.onclick = () => chooseShaderVersion(v.id);
+      btn.className = (v.id === selectedShaderVersion) ? 'active-version' : '';
+      versionDiv.appendChild(btn);
+    });
+    // Qualities
+    const qualityDiv = document.getElementById('quality-options');
+    qualityDiv.innerHTML = '';
+    qualities.forEach(q => {
+      const btn = document.createElement('button');
+      btn.textContent = q.label;
+      btn.id = 'quality-' + q.id;
+      btn.onclick = () => chooseQuality(q.id);
+      btn.className = (q.id === selectedQuality) ? 'active-quality' : '';
+      qualityDiv.appendChild(btn);
+    });
+    // Providers
+    const providerDiv = document.getElementById('providers');
+    providerDiv.innerHTML = '<p>Choose provider:</p>';
+    providers.forEach(p => {
+      const btn = document.createElement('button');
+      btn.textContent = p.label;
+      btn.className = p.btnClass;
+      btn.onclick = () => goToLink(p.id);
+      providerDiv.appendChild(btn);
+    });
+  }
 
   // Show the popup
   function showDownloadPopup() {
     document.getElementById('popup').style.display = 'flex';
-    // Reset to default version and hide providers
-    chooseShaderVersion('v1.5');
+    selectedShaderVersion = versions[0].id;
+    selectedQuality = '';
     document.getElementById('providers').style.display = 'none';
+    renderPopupOptions();
   }
 
   // Hide the popup and provider options
@@ -259,23 +326,19 @@
   // Handle shader version selection
   function chooseShaderVersion(version) {
     selectedShaderVersion = version;
-    // Update button styles
-    document.getElementById('ver-v1.5').classList.remove('active-version');
-    document.getElementById('ver-v1.4').classList.remove('active-version');
-    document.getElementById('ver-' + version).classList.add('active-version');
-    // Hide providers until quality is chosen again
     document.getElementById('providers').style.display = 'none';
+    renderPopupOptions();
   }
 
   // Handle quality selection
   function chooseQuality(quality) {
     selectedQuality = quality;
     document.getElementById('providers').style.display = 'block';
+    renderPopupOptions();
   }
 
   // When a provider is chosen, open the correct link
   function goToLink(provider) {
-    // Convert version to object key (v1.5 -> v1_5)
     const versionKey = selectedShaderVersion.replace('.', '_');
     const linksForVersion = downloadLinks[versionKey];
     if (!linksForVersion) {
@@ -297,6 +360,14 @@
     }
     closePopup();
   }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    // Render shader image, title, and description
+    document.getElementById('shader-image').src = shaderConfig.image;
+    document.getElementById('shader-image').alt = shaderConfig.imageAlt;
+    document.getElementById('shader-title').textContent = shaderConfig.title;
+    document.getElementById('shader-description').textContent = shaderConfig.description;
+  });
   </script>
 </body>
 </html>

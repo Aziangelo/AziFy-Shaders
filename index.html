@@ -153,7 +153,7 @@
 </head>
 <body>
   <header id="header">
-    <div class="title">AziFy Shaders</div>
+    <div class="title"><a href="index.html" style="color: inherit; text-decoration: none;">AziFy Shaders</a></div>
     <div class="search-box">
       <button class="search-toggle" onclick="toggleSearch()">
         <img src="search-icon.png" alt="Search" />
@@ -164,64 +164,7 @@
   <div class="summary" id="summary">
     A collection of stylish and optimized shaders for your projects.
   </div>
-  <div class="swiper-container" id="swiper">
-    <a href="downloads/shader1.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Soft Lighting Shader</h3>
-        <p>Soft lighting shader with smooth shadows</p>
-      </div>
-    </a>
-    <a href="downloads/shader2.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Retro CRT Shader</h3>
-        <p>Retro CRT shader with glow and flicker</p>
-      </div>
-    </a>
-    <a href="downloads/shader3.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Water Ripple Shader</h3>
-        <p>Water ripple shader with distortion</p>
-      </div>
-    </a>
-    <a href="downloads/shader4.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Volumetric Fog Shader</h3>
-        <p>Volumetric fog shader for atmospheric depth</p>
-      </div>
-    </a>
-    <a href="downloads/shader5.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Pixelation Shader</h3>
-        <p>Pixelation shader for retro-style visuals</p>
-      </div>
-    </a>
-    <a href="downloads/shader6.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Fire Shader</h3>
-        <p>Dynamic fire shader with particle effects</p>
-      </div>
-    </a>
-    <a href="downloads/shader7.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Glass Refraction Shader</h3>
-        <p>Glass refraction shader with chromatic aberration</p>
-      </div>
-    </a>
-    <a href="downloads/shader8.html" class="shader-card">
-      <div class="shader-thumbnail"></div>
-      <div class="shader-description">
-        <h3>Neon Outline Shader</h3>
-        <p>Neon outline shader for glowing edges</p>
-      </div>
-    </a>
-  </div>
+  <div class="swiper-container" id="shader-list"></div>
   <div class="no-results" id="noResults" style="display:none">No results found.</div>
   <div class="footer">
     © Azify Shaders, All Rights Reserved.
@@ -257,6 +200,95 @@
     }
 
     searchInput.addEventListener("input", filterCards);
+
+    // === SHADER CARDS CONFIGURATION ===
+    const shaders = [
+      {
+        title: "Soft Lighting Shader",
+        description: "Soft lighting shader with smooth shadows",
+        image: "images/shader1.gif",
+        link: "downloads/shader1.html"
+      },
+      {
+        title: "Retro CRT Shader",
+        description: "Retro CRT shader with glow and flicker",
+        image: "",
+        link: "downloads/shader2.html"
+      },
+      {
+        title: "Water Ripple Shader",
+        description: "Water ripple shader with distortion",
+        image: "",
+        link: "downloads/shader3.html"
+      },
+      {
+        title: "Volumetric Fog Shader",
+        description: "Volumetric fog shader for atmospheric depth",
+        image: "",
+        link: "downloads/shader4.html"
+      },
+      {
+        title: "Pixelation Shader",
+        description: "Pixelation shader for retro-style visuals",
+        image: "",
+        link: "downloads/shader5.html"
+      },
+      {
+        title: "Fire Shader",
+        description: "Dynamic fire shader with particle effects",
+        image: "",
+        link: "downloads/shader6.html"
+      },
+      {
+        title: "Glass Refraction Shader",
+        description: "Glass refraction shader with chromatic aberration",
+        image: "",
+        link: "downloads/shader7.html"
+      },
+      {
+        title: "Neon Outline Shader",
+        description: "Neon outline shader for glowing edges",
+        image: "",
+        link: "downloads/shader8.html"
+      }
+    ];
+    // === END SHADER CARDS CONFIGURATION ===
+
+    window.addEventListener('DOMContentLoaded', function() {
+      // Render shader cards
+      const container = document.getElementById('shader-list');
+      container.innerHTML = '';
+      shaders.forEach(shader => {
+        const a = document.createElement('a');
+        a.href = shader.link;
+        a.className = 'shader-card';
+        // Thumbnail
+        const thumb = document.createElement('div');
+        thumb.className = 'shader-thumbnail';
+        if (shader.image) {
+          const img = document.createElement('img');
+          img.src = shader.image;
+          img.alt = shader.title + ' Thumbnail';
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+          img.style.borderRadius = '10px';
+          thumb.appendChild(img);
+        }
+        a.appendChild(thumb);
+        // Description
+        const desc = document.createElement('div');
+        desc.className = 'shader-description';
+        const h3 = document.createElement('h3');
+        h3.textContent = shader.title;
+        const p = document.createElement('p');
+        p.textContent = shader.description;
+        desc.appendChild(h3);
+        desc.appendChild(p);
+        a.appendChild(desc);
+        container.appendChild(a);
+      });
+    });
   </script>
 </body>
 </html>
