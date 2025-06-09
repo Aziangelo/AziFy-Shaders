@@ -69,20 +69,6 @@
     .download-btn:hover {
       background-color: #b84848;
     }
-    .download-btn.clicked {
-      animation: pop 0.3s ease;
-    }
-    @keyframes pop {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
     .footer {
       text-align: center;
       padding: 1rem;
@@ -90,6 +76,55 @@
       color: #888;
       background-color: #121212;
       margin-top: 2rem;
+    }
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup-content {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 90%;
+      width: 320px;
+      text-align: center;
+      border: 2px solid #963636;
+    }
+    .popup-content h3 {
+      margin-bottom: 1rem;
+    }
+    .popup-content .quality-options button {
+      background-color: #963636;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .popup-content .provider-options button {
+      background-color: #444;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: 1px solid #963636;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .close-btn {
+      margin-top: 1rem;
+      background-color: transparent;
+      color: #aaa;
+      border: none;
+      cursor: pointer;
     }
     @media (max-width: 600px) {
       .shader-info h2 {
@@ -113,7 +148,7 @@
       <p>
         This shader delivers a beautiful soft lighting effect with smooth shadows, enhancing your scenes with a more natural and pleasing light diffusion. Ideal for atmospheric projects, it blends light gracefully across surfaces and works efficiently across most platforms.
       </p>
-      <button class="download-btn" onclick="animateDownload(this)">Download Shader</button>
+      <button class="download-btn" onclick="showDownloadPopup()">Download Shader</button>
     </div>
   </div>
 
@@ -121,13 +156,44 @@
     © Azify Shaders, All Rights Reserved.
   </div>
 
+  <div id="popup" class="popup" style="display:none">
+    <div class="popup-content">
+      <h3>Select Version and Provider</h3>
+      <div class="quality-options">
+        <button onclick="chooseVersion('ultra')">Ultra</button>
+        <button onclick="chooseVersion('high')">High</button>
+        <button onclick="chooseVersion('medium')">Medium</button>
+      </div>
+      <div class="provider-options" id="providers" style="display:none">
+        <p>Choose provider:</p>
+        <button onclick="goToLink('Linkvertise')">Linkvertise</button>
+        <button onclick="goToLink('Lootlabs')">Lootlabs</button>
+      </div>
+      <button class="close-btn" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
   <script>
-    function animateDownload(button) {
-      button.classList.add('clicked');
-      setTimeout(() => {
-        button.classList.remove('clicked');
-      }, 300);
-      // Actual download logic can be added here
+    let selectedVersion = '';
+
+    function showDownloadPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('providers').style.display = 'none';
+    }
+
+    function chooseVersion(version) {
+      selectedVersion = version;
+      document.getElementById('providers').style.display = 'block';
+    }
+
+    function goToLink(provider) {
+      alert(`Downloading ${selectedVersion} via ${provider}`);
+      closePopup();
+      // Replace alert with actual redirection logic if needed
     }
   </script>
 </body>
