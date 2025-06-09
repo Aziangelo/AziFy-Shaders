@@ -118,6 +118,17 @@
       border: 1px solid #963636;
       border-radius: 6px;
       cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+    }
+    .popup-content .provider-options button.linkvertise-btn {
+      background-color: #444;
+      border-color: orange;
+      color: white;
+    }
+    .popup-content .provider-options button.lootlabs-btn {
+      background-color: #444;
+      border-color: #8e44ad;
+      color: white;
     }
     .close-btn {
       margin-top: 1rem;
@@ -166,35 +177,59 @@
       </div>
       <div class="provider-options" id="providers" style="display:none">
         <p>Choose provider:</p>
-        <button onclick="goToLink('Linkvertise')">Linkvertise</button>
-        <button onclick="goToLink('Lootlabs')">Lootlabs</button>
+        <button class="linkvertise-btn" onclick="goToLink('Linkvertise')">Linkvertise</button>
+        <button class="lootlabs-btn" onclick="goToLink('Lootlabs')">Lootlabs</button>
       </div>
       <button class="close-btn" onclick="closePopup()">Cancel</button>
     </div>
   </div>
 
   <script>
-    let selectedVersion = '';
+  // Store the selected version
+  let selectedVersion = '';
 
-    function showDownloadPopup() {
-      document.getElementById('popup').style.display = 'flex';
+  const downloadLinks = {
+    ultra: {
+      Linkvertise: 'https://your-ultra-linkvertise-link.com',
+      Lootlabs: 'https://your-ultra-lootlabs-link.com'
+    },
+    high: {
+      Linkvertise: 'https://your-high-linkvertise-link.com',
+      Lootlabs: 'https://your-high-lootlabs-link.com'
+    },
+    medium: {
+      Linkvertise: 'https://your-medium-linkvertise-link.com',
+      Lootlabs: 'https://your-medium-lootlabs-link.com'
     }
+  };
 
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-      document.getElementById('providers').style.display = 'none';
-    }
+  // Show the popup
+  function showDownloadPopup() {
+    document.getElementById('popup').style.display = 'flex';
+  }
 
-    function chooseVersion(version) {
-      selectedVersion = version;
-      document.getElementById('providers').style.display = 'block';
-    }
+  // Hide the popup and provider options
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('providers').style.display = 'none';
+  }
 
-    function goToLink(provider) {
-      alert(`Downloading ${selectedVersion} via ${provider}`);
-      closePopup();
-      // Replace alert with actual redirection logic if needed
+  function chooseVersion(version) {
+    selectedVersion = version;
+    document.getElementById('providers').style.display = 'block';
+  }
+
+  // When a provider is chosen, open the correct link
+  function goToLink(provider) {
+    // Get the correct link from the downloadLinks object
+    const link = downloadLinks[selectedVersion][provider];
+    if (link) {
+      window.open(link, '_blank'); // Open link in a new tab
+    } else {
+      alert('Download link not set for this option.');
     }
-  </script>
+    closePopup();
+  }
+</script>
 </body>
 </html>
