@@ -27,25 +27,26 @@
       z-index: 2;
     }
     .title {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: bold;
     }
     .summary {
       background-color: #1e1e1e;
-      margin: 1rem;
-      padding: 1rem;
+      margin: 0.75rem;
+      padding: 0.75rem;
       border-radius: 8px;
       border-left: 4px solid #963636;
+      font-size: 0.9rem;
     }
     .swiper-container {
-      margin: 1rem;
-      padding: 1rem;
+      margin: 0.75rem;
+      padding: 0.75rem;
       background-color: #1e1e1e;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       overflow-y: auto;
-      gap: 1.2rem;
+      gap: 1rem;
       max-height: 70vh;
       scrollbar-width: none;
     }
@@ -55,10 +56,10 @@
     .shader-card {
       background-color: #2a2a2a;
       border-radius: 10px;
-      padding: 1rem;
+      padding: 0.75rem;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
       border: 1px solid #963636;
       cursor: pointer;
       text-decoration: none;
@@ -68,8 +69,8 @@
       background-color: #3a3a3a;
     }
     .shader-thumbnail {
-      width: 300px;
-      height: 168px;
+      width: 160px;
+      height: 90px;
       border-radius: 10px;
       background-color: #963636;
       flex-shrink: 0;
@@ -78,21 +79,32 @@
       flex-grow: 1;
     }
     .shader-description h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.4rem;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
       color: #ffffff;
     }
     .shader-description p {
-      font-size: 1rem;
+      font-size: 0.85rem;
       color: #cccccc;
-      line-height: 1.4;
+      line-height: 1.3;
     }
     .footer {
       text-align: center;
       padding: 1rem;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #888;
       background-color: #121212;
+    }
+    @media (max-width: 480px) {
+      .shader-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .shader-thumbnail {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
     }
   </style>
 </head>
@@ -162,9 +174,7 @@
     </a>
   </div>
   <div class="footer">
-    © Azify Shaders, All Rights Reserved.
-    © 2023-2025
-    © Azi Angelo
+    © Azi ANngelo "Azify Shaders", All Rights Reserved.
   </div>
 </body>
 </html>
